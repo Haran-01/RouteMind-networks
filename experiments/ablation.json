@@ -1,0 +1,15 @@
+{
+  "description": "Independent mechanism removals relative to class-aware defaults. Fixed-rank safety and offered workloads are identical. Five paired realizations per scenario; initial ablation evidence, not general optimality.",
+  "seed": 314159,
+  "runs": [1, 2, 3, 4, 5],
+  "scenarios": ["congestion", "burst", "combined"],
+  "parameters": {"duration": 26, "interval": 0.25, "alpha": 0.3, "dwell": 1.5, "threshold": 0.12, "loop-safe": 1},
+  "reference": "default",
+  "variants": [
+    {"id": "default", "mode": "class-aware"},
+    {"id": "no-smoothing", "mode": "class-aware", "parameters": {"alpha": 1}},
+    {"id": "no-hysteresis", "mode": "class-aware", "parameters": {"threshold": 0}},
+    {"id": "no-dwell", "mode": "class-aware", "parameters": {"dwell": 0}},
+    {"id": "shared-objective", "mode": "stable"}
+  ]
+}

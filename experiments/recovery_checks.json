@@ -1,0 +1,8 @@
+{
+  "description": "Unaligned failure observations and dwell bypass: 100 s dwell exceeds the experiment",
+  "seed": 42,
+  "runs": [1],
+  "modes": ["static", "adaptive", "stable", "class-aware"],
+  "scenarios": ["failure", "combined"],
+  "parameters": {"duration": 26, "interval": 0.37, "alpha": 0.3, "dwell": 100, "threshold": 0.99, "loop-safe": 1}
+}

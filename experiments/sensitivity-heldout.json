@@ -1,0 +1,67 @@
+{
+  "description": "Predeclared one-factor sensitivity heldout; identical seven-setting grid; separate seed from screening/evaluation/ablations; no winner is selected or retuned.",
+  "seed": 161803,
+  "runs": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "scenarios": [
+    "congestion",
+    "burst",
+    "combined"
+  ],
+  "parameters": {
+    "duration": 26,
+    "interval": 0.25,
+    "alpha": 0.3,
+    "dwell": 1.5,
+    "threshold": 0.12,
+    "loop-safe": 1
+  },
+  "reference": "default",
+  "variants": [
+    {
+      "id": "default",
+      "mode": "class-aware"
+    },
+    {
+      "id": "alpha-01",
+      "parameters": {
+        "alpha": 0.1
+      }
+    },
+    {
+      "id": "alpha-1",
+      "parameters": {
+        "alpha": 1
+      }
+    },
+    {
+      "id": "dwell-0",
+      "parameters": {
+        "dwell": 0
+      }
+    },
+    {
+      "id": "dwell-3",
+      "parameters": {
+        "dwell": 3
+      }
+    },
+    {
+      "id": "threshold-0",
+      "parameters": {
+        "threshold": 0
+      }
+    },
+    {
+      "id": "threshold-025",
+      "parameters": {
+        "threshold": 0.25
+      }
+    }
+  ]
+}

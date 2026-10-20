@@ -1,0 +1,68 @@
+{
+  "seed": 424242,
+  "runs": [
+    1
+  ],
+  "scenarios": [
+    "active-failure"
+  ],
+  "parameters": {
+    "duration": 26,
+    "interval": 0.25,
+    "alpha": 0.3,
+    "dwell": 1.5,
+    "threshold": 0.12,
+    "loop-safe": 1
+  },
+  "description": "Fixed-rank reachability boundary: one deterministic active-path failure per mode/constraint; a physical detour exists but begins with an equal-rank edge. Default controller parameters; diagnostic only, no uncertainty from one trial.",
+  "variants": [
+    {
+      "id": "constrained-adaptive",
+      "mode": "adaptive",
+      "parameters": {
+        "topology": "detour",
+        "loop-safe": 1
+      },
+      "reference": "unconstrained-adaptive",
+      "allowed_differences": [
+        "loop_safe"
+      ]
+    },
+    {
+      "id": "unconstrained-adaptive",
+      "mode": "adaptive",
+      "parameters": {
+        "topology": "detour",
+        "loop-safe": 0
+      },
+      "reference": "unconstrained-adaptive",
+      "allowed_differences": [
+        "loop_safe"
+      ]
+    },
+    {
+      "id": "constrained-class-aware",
+      "mode": "class-aware",
+      "parameters": {
+        "topology": "detour",
+        "loop-safe": 1
+      },
+      "reference": "unconstrained-class-aware",
+      "allowed_differences": [
+        "loop_safe"
+      ]
+    },
+    {
+      "id": "unconstrained-class-aware",
+      "mode": "class-aware",
+      "parameters": {
+        "topology": "detour",
+        "loop-safe": 0
+      },
+      "reference": "unconstrained-class-aware",
+      "allowed_differences": [
+        "loop_safe"
+      ]
+    }
+  ]
+}

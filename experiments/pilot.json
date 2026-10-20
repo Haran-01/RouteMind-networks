@@ -1,0 +1,8 @@
+{
+  "description": "Small congestion pilot with three independent seeded workload realizations; broad evaluation still required",
+  "seed": 42,
+  "runs": [1, 2, 3],
+  "modes": ["static", "adaptive", "stable", "class-aware"],
+  "scenarios": ["congestion"],
+  "parameters": {"duration": 26, "interval": 0.25, "alpha": 0.3, "dwell": 1.5, "threshold": 0.12, "loop-safe": 1}
+}

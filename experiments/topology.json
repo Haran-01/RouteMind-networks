@@ -1,0 +1,119 @@
+{
+  "seed": 424242,
+  "runs": [
+    1,
+    2,
+    3
+  ],
+  "scenarios": [
+    "congestion",
+    "burst"
+  ],
+  "parameters": {
+    "duration": 26,
+    "interval": 0.25,
+    "alpha": 0.3,
+    "dwell": 1.5,
+    "threshold": 0.12,
+    "loop-safe": 1
+  },
+  "description": "Three native topologies, four policies, matched comparisons within each topology. The 11-node extended fabric has equal-length three-link corridors; the detour fabric contains an unequal-hop alternative excluded by fixed rank. n=3 per scenario is exploratory.",
+  "variants": [
+    {
+      "id": "parallel-static",
+      "mode": "static",
+      "parameters": {
+        "topology": "parallel"
+      },
+      "reference": "parallel-adaptive"
+    },
+    {
+      "id": "parallel-adaptive",
+      "mode": "adaptive",
+      "parameters": {
+        "topology": "parallel"
+      },
+      "reference": "parallel-adaptive"
+    },
+    {
+      "id": "parallel-stable",
+      "mode": "stable",
+      "parameters": {
+        "topology": "parallel"
+      },
+      "reference": "parallel-adaptive"
+    },
+    {
+      "id": "parallel-class-aware",
+      "mode": "class-aware",
+      "parameters": {
+        "topology": "parallel"
+      },
+      "reference": "parallel-adaptive"
+    },
+    {
+      "id": "extended-static",
+      "mode": "static",
+      "parameters": {
+        "topology": "extended"
+      },
+      "reference": "extended-adaptive"
+    },
+    {
+      "id": "extended-adaptive",
+      "mode": "adaptive",
+      "parameters": {
+        "topology": "extended"
+      },
+      "reference": "extended-adaptive"
+    },
+    {
+      "id": "extended-stable",
+      "mode": "stable",
+      "parameters": {
+        "topology": "extended"
+      },
+      "reference": "extended-adaptive"
+    },
+    {
+      "id": "extended-class-aware",
+      "mode": "class-aware",
+      "parameters": {
+        "topology": "extended"
+      },
+      "reference": "extended-adaptive"
+    },
+    {
+      "id": "detour-static",
+      "mode": "static",
+      "parameters": {
+        "topology": "detour"
+      },
+      "reference": "detour-adaptive"
+    },
+    {
+      "id": "detour-adaptive",
+      "mode": "adaptive",
+      "parameters": {
+        "topology": "detour"
+      },
+      "reference": "detour-adaptive"
+    },
+    {
+      "id": "detour-stable",
+      "mode": "stable",
+      "parameters": {
+        "topology": "detour"
+      },
+      "reference": "detour-adaptive"
+    },
+    {
+      "id": "detour-class-aware",
+      "mode": "class-aware",
+      "parameters": {
+        "topology": "detour"
+      },
+      "reference": "detour-adaptive"
+    }
+  ]
+}

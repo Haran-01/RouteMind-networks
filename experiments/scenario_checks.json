@@ -1,0 +1,8 @@
+{
+  "description": "Functional coverage of the additional scenario generators",
+  "seed": 42,
+  "runs": [1],
+  "modes": ["class-aware"],
+  "scenarios": ["steady", "burst", "combined"],
+  "parameters": {"duration": 26, "interval": 0.25, "alpha": 0.3, "dwell": 1.5, "threshold": 0.12, "loop-safe": 1}
+}

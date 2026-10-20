@@ -1,0 +1,27 @@
+{
+  "description": "Repeat the full default-setting correctness gate on the 11-node extended topology",
+  "seed": 42,
+  "runs": [
+    1
+  ],
+  "modes": [
+    "static",
+    "adaptive",
+    "stable",
+    "class-aware"
+  ],
+  "scenarios": [
+    "active-failure",
+    "disconnected",
+    "missing-route"
+  ],
+  "parameters": {
+    "duration": 26,
+    "interval": 0.25,
+    "alpha": 0.3,
+    "dwell": 1.5,
+    "threshold": 0.12,
+    "loop-safe": 1,
+    "topology": "extended"
+  }
+}

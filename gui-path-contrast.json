@@ -1,0 +1,102 @@
+{
+  "name": "Path contrast \u00b7 narrow fast corridor with burst overload",
+  "topology": "parallel",
+  "custom": true,
+  "mode": "class-aware",
+  "scenario": "burst",
+  "policy": "balanced",
+  "duration": 30.0,
+  "interval": 0.25,
+  "alpha": 0.3,
+  "dwell": 1.5,
+  "threshold": 0.12,
+  "seed": 42,
+  "run": 1,
+  "pcap": false,
+  "loop_safe": true,
+  "audit": false,
+  "calibration_rate": 0.256,
+  "network": {
+    "nodes": 8,
+    "links": [
+      {
+        "from": 0,
+        "to": 1,
+        "capacity": 100.0,
+        "delay": 1.0,
+        "queue": 60000
+      },
+      {
+        "from": 1,
+        "to": 2,
+        "capacity": 3.0,
+        "delay": 1.0,
+        "queue": 60000
+      },
+      {
+        "from": 2,
+        "to": 5,
+        "capacity": 3.0,
+        "delay": 1.0,
+        "queue": 60000
+      },
+      {
+        "from": 1,
+        "to": 3,
+        "capacity": 12.0,
+        "delay": 4.0,
+        "queue": 60000
+      },
+      {
+        "from": 3,
+        "to": 5,
+        "capacity": 12.0,
+        "delay": 4.0,
+        "queue": 60000
+      },
+      {
+        "from": 1,
+        "to": 4,
+        "capacity": 30.0,
+        "delay": 10.0,
+        "queue": 60000
+      },
+      {
+        "from": 4,
+        "to": 5,
+        "capacity": 30.0,
+        "delay": 10.0,
+        "queue": 60000
+      },
+      {
+        "from": 5,
+        "to": 6,
+        "capacity": 100.0,
+        "delay": 1.0,
+        "queue": 60000
+      },
+      {
+        "from": 7,
+        "to": 2,
+        "capacity": 100.0,
+        "delay": 1.0,
+        "queue": 60000
+      }
+    ]
+  },
+  "traffic": {
+    "udp_rate": 0.512,
+    "packet_bytes": 640,
+    "background_rate": 12.0,
+    "background_start": 6.0,
+    "background_stop": 24.0,
+    "burst_on": 0.4,
+    "burst_off": 0.4
+  },
+  "failure": {
+    "from": 2,
+    "to": 5,
+    "down": 14.0,
+    "up": 20.0
+  }
+}

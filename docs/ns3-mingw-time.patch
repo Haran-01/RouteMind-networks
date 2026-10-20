@@ -1,0 +1,62 @@
+--- a/src/core/model/time.cc
++++ b/src/core/model/time.cc
+@@ -78,7 +78,13 @@
+ Time::MarkedTimes* Time::g_markingTimes = nullptr;
+ 
+ /// The static mutex for critical sections around modification of Time::g_markingTimes.
+-static std::mutex g_markingMutex;
++// Function-local initialization is required when the toolchain's std::mutex
++// constructor is dynamic: nstime.h calls StaticInit before this TU's globals.
++static std::mutex& RouteMindMarkingMutex()
++{
++    static std::mutex mutex;
++    return mutex;
++}
+ 
+ // Function called to force static initialization
+ // static
+@@ -87,7 +93,7 @@
+ {
+     static bool firstTime = true;
+ 
+-    std::unique_lock lock{g_markingMutex};
++    std::unique_lock lock{RouteMindMarkingMutex()};
+ 
+     if (firstTime)
+     {
+@@ -304,7 +310,7 @@
+      * Instead, we copy this body into ConvertTimes.
+      */
+ 
+-    std::unique_lock lock{g_markingMutex};
++    std::unique_lock lock{RouteMindMarkingMutex()};
+ 
+     NS_LOG_FUNCTION_NOARGS();
+     if (g_markingTimes)
+@@ -319,7 +325,7 @@
+ void
+ Time::Mark(Time* const time)
+ {
+-    std::unique_lock lock{g_markingMutex};
++    std::unique_lock lock{RouteMindMarkingMutex()};
+ 
+     NS_LOG_FUNCTION(time);
+     NS_ASSERT(time != nullptr);
+@@ -342,7 +348,7 @@
+ void
+ Time::Clear(Time* const time)
+ {
+-    std::unique_lock lock{g_markingMutex};
++    std::unique_lock lock{RouteMindMarkingMutex()};
+ 
+     NS_LOG_FUNCTION(time);
+     NS_ASSERT(time != nullptr);
+@@ -370,7 +376,7 @@
+ void
+ Time::ConvertTimes(const Unit unit)
+ {
+-    std::unique_lock lock{g_markingMutex};
++    std::unique_lock lock{RouteMindMarkingMutex()};
+ 
+     NS_LOG_FUNCTION_NOARGS();
+ 

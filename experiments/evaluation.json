@@ -1,0 +1,8 @@
+{
+  "description": "Paired repeated runs with explicit stochastic background timing and rate",
+  "seed": 42,
+  "runs": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+  "modes": ["static", "adaptive", "stable", "class-aware"],
+  "scenarios": ["steady", "congestion", "burst", "failure", "combined"],
+  "parameters": {"duration": 26, "interval": 0.25, "alpha": 0.3, "dwell": 1.5, "threshold": 0.12}
+}
